@@ -3,21 +3,27 @@ import { connect } from 'react-redux';
 
 
 class TranslationsList extends Component {
-	renderTranslation(translationResponse) {
-		const translation = translationResponse.data.translations[0].translatedText;
+	generateTranslationsList(translationResponse) {
+		const translatedWords = translationResponse.map(translation => {
+			return translation.data.data.translations[0].translatedText
+		});
+		return translatedWords;
+	}
 
+	renderTranslations(translation) {
 		return (
-			<tr>
+			<tr key={translation}>
 				<td>{translation}</td>
 			</tr>
-		)
+		);
+
 	}
 
 	render() {
 		return(
 			<table className="table table-hover">
 				<tbody>
-					{this.props.translations.map((this.renderTranslation))}
+					{this.generateTranslationsList(this.props.translations).map(this.renderTranslations)}
 				</tbody>
 			</table>
 		);

@@ -20,7 +20,7 @@ class WordSearchBar extends Component{
 		event.preventDefault();
 
 		// call action creator to make API request
-		this.props.fetchTranslations(this.state.term);
+		this.props.fetchTranslations(this.state.term, this.props.languages);
 		// clear search input after search
 		this.setState({ term: '' });
 	}
@@ -41,4 +41,8 @@ class WordSearchBar extends Component{
 	}
 }
 
-export default connect(null, { fetchTranslations })(WordSearchBar);
+function mapStateToProps( { languages } ) {
+	return { languages };
+}
+
+export default connect(mapStateToProps, { fetchTranslations })(WordSearchBar);
