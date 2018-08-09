@@ -13,8 +13,8 @@ export function fetchTranslations(word, languages) {
 			return axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
 		})).then(values => {
 			return values;
-		});
-
+		})
+		
 	return {
 		type: FETCH_TRANSLATIONS,
 		payload: requests

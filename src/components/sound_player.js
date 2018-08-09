@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 export default class SoundPlayer extends Component {
 
-	handleButtonClick(event) {
+	handleButtonClick = (event) => {
 		this.speaker = new SpeechSynthesisUtterance();
-		this.selectedVoice = 'Google español';
+		this.selectedVoice = this.props.voice;
 		this.speaker.text = this.props.text;
 		this.voices = speechSynthesis.getVoices();
 		this.voices.forEach(voice => {
@@ -21,7 +21,7 @@ export default class SoundPlayer extends Component {
 				<button 
 					type="button" 
 					className="btn btn-success"
-					onClick={this.handleButtonClick.bind(this)}>
+					onClick={this.handleButtonClick}>
 					<span className="glyphicon glyphicon-volume-up"></span>
 				</button>
 			</div>
