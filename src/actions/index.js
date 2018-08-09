@@ -5,13 +5,13 @@ const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=$
 
 export const FETCH_TRANSLATIONS = 'fetch_translations';
 export const ADD_LANGUAGE = 'add_language';
-
+ 
 export function fetchTranslations(word, languages) {
 		// to do: iterate through languages array and 
 		// issue one request per language
 		const requests = Promise.all(languages.map(language => {
 			return axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
-		})).then(function(values) {
+		})).then(values => {
 			return values;
 		});
 

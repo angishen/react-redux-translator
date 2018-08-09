@@ -30,7 +30,7 @@ class WordSearchBar extends Component{
 			<form onSubmit={this.handleSubmit} className="input-group">
 				<input 
 					type="text"
-					placeholder="Search for a word"
+					placeholder="Search for a word or phrase"
 					className = "form-control"
 					value = {this.state.term}
 					onChange = {this.handleInputChange}

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import SoundPlayer from '../components/sound_player';
 
 class TranslationsList extends Component {
+	
 	generateTranslationsList(translationResponse) {
 		const translatedWords = translationResponse.map(translation => {
 			return translation.data.data.translations[0].translatedText
@@ -14,9 +16,9 @@ class TranslationsList extends Component {
 		return (
 			<tr key={translation}>
 				<td>{translation}</td>
+				<td><SoundPlayer text={translation}/></td>
 			</tr>
 		);
-
 	}
 
 	render() {
@@ -30,8 +32,8 @@ class TranslationsList extends Component {
 	}
 }
 
-function mapStateToProps({ translations }) {
-	return { translations };
+function mapStateToProps({ translations, languages }) {
+	return { translations, languages };
 }
 
 export default connect(mapStateToProps)(TranslationsList);
