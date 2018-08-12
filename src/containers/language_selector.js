@@ -6,7 +6,7 @@ import TRANSLATE_LANGUAGE_MAPPING from '../constants/translate_language_mapping'
 import LANGUAGE_TRANSLATE_MAPPING from '../constants/language_translate_mapping';
 
 import { addLanguage } from '../actions';
-// import { fetchTranslation } from '../actions'; 
+import { fetchTranslation } from '../actions'; 
 
 class LanguageSelector extends Component {
 	constructor(props) {
@@ -57,4 +57,4 @@ function mapStateToProps({words}) {
 	return { words };
 }
 
-export default connect(mapStateToProps, { addLanguage })(LanguageSelector);
+export default connect(mapStateToProps, { addLanguage, fetchTranslation })(LanguageSelector);

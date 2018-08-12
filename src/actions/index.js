@@ -7,6 +7,7 @@ export const FETCH_TRANSLATIONS = 'fetch_translations';
 export const FETCH_TRANSLATION = 'fetch_tranlation';
 export const ADD_LANGUAGE = 'add_language';
 export const FETCH_VOICES = 'fetch_voices';
+export const SAVE_WORD = 'save_word';
  
 export function fetchTranslations(word, languages) {
 	// to do: iterate through languages array and 
@@ -23,19 +24,26 @@ export function fetchTranslations(word, languages) {
 	};
 }
 
-// export function fetchTranslation(word, language) {
-// 	const request = axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
+export function fetchTranslation(word, language) {
+	const request = axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
 
-// 	return {
-// 		type: FETCH_TRANSLATION,
-// 		payload: request
-// 	};
-// }
+	return {
+		type: FETCH_TRANSLATION,
+		payload: request
+	};
+}
 
 export function addLanguage(language) {
 	return {
 		type: ADD_LANGUAGE,
 		payload: language
+	}
+}
+
+export function saveWord(word) {
+	return {
+		type: SAVE_WORD,
+		payload: word
 	}
 }
 

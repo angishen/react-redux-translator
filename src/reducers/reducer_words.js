@@ -1,9 +1,9 @@
-import { FETCH_TRANSLATIONS } from '../actions';
+import { SAVE_WORD } from '../actions';
 
 export default function(state = [], action) {
 	switch(action.type) {
-	case FETCH_TRANSLATIONS:
-		return [...state, action.payload[1]]
+	case SAVE_WORD:
+		return [...state, action.payload]
 	default: 
 		return state;
 	}

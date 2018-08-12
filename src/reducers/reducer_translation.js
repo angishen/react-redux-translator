@@ -6,8 +6,8 @@ export default function(state = [], action) {
 	case FETCH_TRANSLATIONS:
 		console.log(action.payload);
 		return action.payload;
-	// case FETCH_TRANSLATION:
-	// 	return action.payload;
+	case FETCH_TRANSLATION:
+		return [...state, action.payload];
 	default: 
 		return state;
 	}

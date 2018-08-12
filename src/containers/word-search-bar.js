@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTranslations } from '../actions';
+import { saveWord } from '../actions';
 
 class WordSearchBar extends Component{
 	constructor(props) {
@@ -18,7 +19,8 @@ class WordSearchBar extends Component{
 
 	handleSubmit(event) {
 		event.preventDefault();
-
+		
+		this.props.saveWord(this.state.term);
 		// call action creator to make API request
 		this.props.fetchTranslations(this.state.term, this.props.languages);
 		// clear search input after search
@@ -45,4 +47,4 @@ function mapStateToProps( { languages } ) {
 	return { languages };
 }
 
-export default connect(mapStateToProps, { fetchTranslations })(WordSearchBar);
+export default connect(mapStateToProps, { fetchTranslations, saveWord })(WordSearchBar);
