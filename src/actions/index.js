@@ -5,15 +5,16 @@ const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=$
 
 export const FETCH_TRANSLATIONS = 'fetch_translations';
 export const ADD_LANGUAGE = 'add_language';
+export const FETCH_VOICES = 'fetch_voices';
  
 export function fetchTranslations(word, languages) {
-		// to do: iterate through languages array and 
-		// issue one request per language
-		const requests = Promise.all(languages.map(language => {
-			return axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
-		})).then(values => {
-			return values;
-		})
+	// to do: iterate through languages array and 
+	// issue one request per language
+	const requests = Promise.all(languages.map(language => {
+		return axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
+	})).then(values => {
+		return values;
+	})
 		
 	return {
 		type: FETCH_TRANSLATIONS,
@@ -26,4 +27,16 @@ export function addlanguage(language) {
 		type: ADD_LANGUAGE,
 		payload: language
 	}
+}
+
+export function fetchVoices() {
+	const awaitVoices = new Promise(done => speechSynthesis.onvoiceschanged = done);
+	const voices = awaitVoices.then(() => {
+		return speechSynthesis.getVoices();
+	})
+
+	return {
+		type: FETCH_VOICES,
+		payload: voices
+	};
 }

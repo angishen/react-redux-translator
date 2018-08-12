@@ -6,13 +6,14 @@ export default class SoundPlayer extends Component {
 		this.speaker = new SpeechSynthesisUtterance();
 		this.selectedVoice = this.props.voice;
 		this.speaker.text = this.props.text;
-		this.voices = speechSynthesis.getVoices();
+		this.voices = this.props.voices;
 		this.voices.forEach(voice => {
 			if (voice.name === this.selectedVoice) {
 				this.speaker.voice = voice;
 			}
 		});
 		speechSynthesis.speak(this.speaker);
+
 	}
 
 	render() {
