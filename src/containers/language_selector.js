@@ -3,34 +3,58 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TRANSLATE_LANGUAGE_MAPPING from '../constants/translate_language_mapping';
+import LANGUAGE_TRANSLATE_MAPPING from '../constants/language_translate_mapping';
 
-export default class LanguageSelector extends Component {
+import { addLanguage } from '../actions';
+// import { fetchTranslation } from '../actions'; 
+
+class LanguageSelector extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {selectedLanguage: ''};
+	}
 	
-	renderDropdownOptions(lang) {
+	renderDropdownOptions = (lang) => {
 		return(
-			<option key={lang} value={lang}>{lang}</option>
+			<option key={lang}>{lang}</option>
 		);
 	}
+	
+	handleChange = (event) => {
+		this.setState({ selectedLanguage: event.target.value })
+	}
 
-	handleSubmit = (event) => {
+	handleAddLanguage = (event) => {
+		let langCode = LANGUAGE_TRANSLATE_MAPPING[this.state.selectedLanguage]
+		this.props.addLanguage(langCode);
+		this.props.fetchTranslation(this.props.words[this.props.words.length - 1], langCode);
 		event.preventDefault();
-		// call add language action creator
-
 	}
 
 	render() {
 		return (
 			<form>
-				<select name="languages">
+				<select 
+					name="language" 
+					onChange={this.handleChange}
+					value={this.state.selectedLanguage}
+				>
 					{_.map(TRANSLATE_LANGUAGE_MAPPING, this.renderDropdownOptions)}
 				</select>
 				<button 
 					type="submit" 
 					className="btn btn-primary"
-					onSubmit={this.handleSubmit}>
+					onClick={this.handleAddLanguage}>
 					<span className="glyphicon glyphicon-plus-sign"></span>
 				</button>
 			</form>
 		);
 	}
 }
+
+function mapStateToProps({words}) {
+	return { words };
+}
+
+export default connect(mapStateToProps, { addLanguage })(LanguageSelector);

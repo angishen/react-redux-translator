@@ -38,13 +38,17 @@ class TranslationsList extends Component {
 	}
 
 	render() {
-		return(
+		if (this.props.translations.length > 0) {
+			return(
 			<table className="table table-hover">
 				<tbody>
 					{this.generateTranslationsList(this.props.translations).map(this.renderTranslations)}
 				</tbody>
 			</table>
-		);
+			);
+		} else {
+			return <div></div>
+		}
 	}
 }
 

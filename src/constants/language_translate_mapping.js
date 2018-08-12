@@ -23,7 +23,7 @@ const LANGUAGE_TRANSLATE_MAPPING = {
  	'Swedish': 'sv',
  	'Thai': 'th',
  	'Turkish': 'tr',
- 	'Chinese (Mandarin)': 'zh-CN'
+ 	'Chinese (Mandarin)': 'zh-CN',
  	'Chinese (Cantonese)': 'zh-HK'
 }
 

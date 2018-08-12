@@ -4,6 +4,7 @@ import API_KEY from '../google_translate_api_key';
 const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&source=en`;
 
 export const FETCH_TRANSLATIONS = 'fetch_translations';
+export const FETCH_TRANSLATION = 'fetch_tranlation';
 export const ADD_LANGUAGE = 'add_language';
 export const FETCH_VOICES = 'fetch_voices';
  
@@ -15,14 +16,23 @@ export function fetchTranslations(word, languages) {
 	})).then(values => {
 		return values;
 	})
-		
+
 	return {
 		type: FETCH_TRANSLATIONS,
 		payload: requests
 	};
 }
 
-export function addlanguage(language) {
+// export function fetchTranslation(word, language) {
+// 	const request = axios.post(`${ROOT_URL}&target=${language}&q=${word}`)
+
+// 	return {
+// 		type: FETCH_TRANSLATION,
+// 		payload: request
+// 	};
+// }
+
+export function addLanguage(language) {
 	return {
 		type: ADD_LANGUAGE,
 		payload: language
