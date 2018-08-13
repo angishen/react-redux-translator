@@ -33,28 +33,32 @@ class LanguageSelector extends Component {
 	}
 
 	render() {
-		return (
-			<form>
+		if (this.props.translations.length > 0) {
+			return (
+				<form>
 				<select 
 					name="language" 
 					onChange={this.handleChange}
 					value={this.state.selectedLanguage}
+					className="ui selection dropdown"
 				>
 					{_.map(TRANSLATE_LANGUAGE_MAPPING, this.renderDropdownOptions)}
 				</select>
 				<button 
 					type="submit" 
-					className="btn btn-primary"
+					className="ui primary button"
 					onClick={this.handleAddLanguage}>
-					<span className="glyphicon glyphicon-plus-sign"></span>
+					<i className="plus circle icon"></i>
 				</button>
-			</form>
-		);
+				</form>
+			)
+		};
+		return <div></div>		
 	}
 }
 
-function mapStateToProps({words}) {
-	return { words };
+function mapStateToProps({words, translations }) {
+	return { words, translations };
 }
 
 export default connect(mapStateToProps, { addLanguage, fetchTranslation })(LanguageSelector);

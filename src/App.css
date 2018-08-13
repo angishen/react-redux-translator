@@ -1,0 +1,19 @@
+.word-heading {
+	text-align: center;
+}
+
+.table {
+	width: 85%;
+	margin: 20px auto;
+}
+
+.search-bar-container {
+	width: 850px;
+	margin: 0px auto;
+
+}
+
+.search-bar {
+	width: 85%;
+	margin: 50px auto;
+}

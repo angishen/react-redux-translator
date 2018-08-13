@@ -37,14 +37,30 @@ class TranslationsList extends Component {
 		);
 	}
 
+	renderWord = (word) => {
+		return (
+			<div className="word-heading">
+				<h1>{word}</h1>
+				<SoundPlayer 
+					text={word}
+					voice={TRANSLATE_VOICE_MAPPING['en']}
+					voices={this.props.voices}
+				/>
+			</div>
+		);
+	}
+
 	render() {
 		if (this.props.translations.length > 0) {
 			return(
-			<table className="table table-hover">
-				<tbody>
-					{this.generateTranslationsList(this.props.translations).map(this.renderTranslations)}
-				</tbody>
-			</table>
+				<div className="table">
+					<React.Fragment>{this.renderWord(this.props.words[this.props.words.length-1])}</React.Fragment>
+					<table className="ui celled table">
+						<tbody>
+							{this.generateTranslationsList(this.props.translations).map(this.renderTranslations)}
+						</tbody>
+					</table>
+				</div>
 			);
 		} else {
 			return <div></div>
@@ -52,8 +68,8 @@ class TranslationsList extends Component {
 	}
 }
 
-function mapStateToProps({ translations, languages, voices }) {
-	return { translations, languages, voices };
+function mapStateToProps({ translations, languages, voices, words }) {
+	return { translations, languages, voices, words };
 }
 
 export default connect(mapStateToProps, { fetchVoices })(TranslationsList);

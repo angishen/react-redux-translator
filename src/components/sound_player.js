@@ -21,9 +21,9 @@ export default class SoundPlayer extends Component {
 			<div>
 				<button 
 					type="button" 
-					className="btn btn-success"
+					className="ui positive basic button"
 					onClick={this.handleButtonClick}>
-					<span className="glyphicon glyphicon-volume-up"></span>
+					<i className="volume up icon"></i>
 				</button>
 			</div>
 		);

@@ -6,6 +6,7 @@ const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=$
 export const FETCH_TRANSLATIONS = 'fetch_translations';
 export const FETCH_TRANSLATION = 'fetch_tranlation';
 export const ADD_LANGUAGE = 'add_language';
+export const DELETE_LANGUAGE = 'delete_language';
 export const FETCH_VOICES = 'fetch_voices';
 export const SAVE_WORD = 'save_word';
  
@@ -36,6 +37,13 @@ export function fetchTranslation(word, language) {
 export function addLanguage(language) {
 	return {
 		type: ADD_LANGUAGE,
+		payload: language
+	}
+}
+
+export function deleteLanguage(language) {
+	return {
+		type: DELETE_LANGUAGE,
 		payload: language
 	}
 }
