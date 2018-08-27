@@ -1,3 +1,4 @@
+import _ from "lodash";
 import axios from "axios";
 import {
   FETCH_TRANSLATION,
@@ -12,19 +13,25 @@ import API_KEY from "../google_translate_api_key";
 const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&source=en`;
 
 export function fetchTranslations(word, languages) {
-  // to do: iterate through languages array and
-  // issue one request per language
-  const requests = Promise.all(
+  const translations = Promise.all(
     languages.map(language => {
       return axios.post(`${ROOT_URL}&target=${language}&q=${word}`);
     })
   ).then(values => {
-    return values;
+    return _.zipWith(
+      languages,
+      values.map(value => {
+        return value.data.data.translations[0].translatedText;
+      }),
+      (a, b) => {
+        return { language: a, translatedText: b };
+      }
+    );
   });
 
   return {
     type: FETCH_TRANSLATIONS,
-    payload: requests
+    payload: translations
   };
 }
 

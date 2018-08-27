@@ -10,37 +10,29 @@ import TRANSLATE_VOICE_MAPPING from "../constants/translate_voice_mapping";
 import { fetchVoices, deleteLanguage } from "../actions";
 
 class TranslationsList extends Component {
-
   componentDidMount() {
     this.props.fetchVoices();
   }
 
-  handleDelete = event => {
-    this.props.deleteLanguage();
+  handleDelete = language => event => {
+    this.props.deleteLanguage(language);
   };
 
-  generateTranslationsList(translationResponse) {
-    const translatedWords = translationResponse.map(translation => {
-      return translation.data.data.translations[0].translatedText;
-    });
-    return _.zip(translatedWords, this.props.languages);
-  }
-
-  renderTranslations = data => {
+  renderTranslations = ({ language, translatedText }) => {
     let voices = this.props.voices;
     return (
-      <tr key={data}>
-        <td>{TRANSLATE_LANGUAGE_MAPPING[data[1]]}</td>
-        <td>{data[0]}</td>
+      <tr key={translatedText}>
+        <td>{TRANSLATE_LANGUAGE_MAPPING[language]}</td>
+        <td>{translatedText}</td>
         <td>
           <SoundPlayer
-            text={data[0]}
-            voice={TRANSLATE_VOICE_MAPPING[data[1]]}
+            text={translatedText}
+            voice={TRANSLATE_VOICE_MAPPING[language]}
             voices={voices}
           />
         </td>
         <td>
-          <button className="ui basic button red">
+          <button onClick={this.handleDelete(language)} className="ui basic button red">
             <i className="trash icon" />
           </button>
         </td>
@@ -72,9 +64,7 @@ class TranslationsList extends Component {
           </React.Fragment>
           <table className="ui celled table">
             <tbody>
-              {this.generateTranslationsList(this.props.translations).map(
-                this.renderTranslations
-              )}
+              {this.props.translations.map(this.renderTranslations)}
             </tbody>
           </table>
         </div>
