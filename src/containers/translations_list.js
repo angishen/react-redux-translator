@@ -1,4 +1,3 @@
-import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
@@ -21,7 +20,7 @@ class TranslationsList extends Component {
   renderTranslations = ({ language, translatedText }) => {
     let voices = this.props.voices;
     return (
-      <tr key={translatedText}>
+      <tr key={language}>
         <td>{TRANSLATE_LANGUAGE_MAPPING[language]}</td>
         <td>{translatedText}</td>
         <td>

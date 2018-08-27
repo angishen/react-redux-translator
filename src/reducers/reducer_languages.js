@@ -5,8 +5,7 @@ export default function(state = ["es", "fr", "zh-CN", "el"], action) {
     case ADD_LANGUAGE:
       return [...state, action.payload];
     case DELETE_LANGUAGE:
-      console.log('action.payload: ' + action.payload);
-      return state.filter(lang => lang !== action.payload);
+      return state.filter(lang => {return lang !== action.payload});
     default:
       return state;
   }

@@ -36,11 +36,18 @@ export function fetchTranslations(word, languages) {
 }
 
 export function fetchTranslation(word, language) {
-  const request = axios.post(`${ROOT_URL}&target=${language}&q=${word}`);
+  const translation = axios
+    .post(`${ROOT_URL}&target=${language}&q=${word}`)
+    .then(value => {
+      return {
+        language,
+        translatedText: value.data.data.translations[0].translatedText
+      };
+    });
 
   return {
     type: FETCH_TRANSLATION,
-    payload: request
+    payload: translation
   };
 }
 
