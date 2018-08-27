@@ -1,31 +1,31 @@
 
 const TRANSLATE_LANGUAGE_MAPPING = {
 	'ar': 'Arabic', 
+	'zh-HK': 'Chinese (Cantonese)',
+	'zh-CN': 'Chinese (Mandarin)',
  	'cs': 'Czech',
- 	'da': 'Danish', 
- 	'de': 'German',
- 	'el': 'Greek',
- 	'es': 'Spanish',
+ 	'da': 'Danish',
+ 	'nl': 'Dutch',
  	'fi': 'Finnish',
  	'fr': 'French',
+ 	'de': 'German',
+ 	'el': 'Greek',
+ 	'iw': 'Hebrew',
  	'hi': 'Hindi',
  	'hu': 'Hungarian',
  	'id': 'Indonesian',
  	'it': 'Italian',
- 	'iw': 'Hebrew',
  	'ja': 'Japanese',
  	'ko': 'Korean',
- 	'nl': 'Dutch',
  	'pl': 'Polish',
  	'pt': 'Portuguese',
  	'ro': 'Romanian',
  	'ru': 'Russian',
  	'sk': 'Slovak',
+ 	'es': 'Spanish',
  	'sv': 'Swedish',
  	'th': 'Thai',
- 	'tr': 'Turkish',
- 	'zh-CN': 'Chinese (Mandarin)',
- 	'zh-HK': 'Chinese (Cantonese)'
+ 	'tr': 'Turkish'
 }
 
 export default TRANSLATE_LANGUAGE_MAPPING;

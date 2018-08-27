@@ -1,7 +1,7 @@
 const LANGUAGE_TRANSLATE_MAPPING = {
-	'Arabic': 'ar', 
+	'Arabic': 'ar',
  	'Czech': 'cs',
- 	'Danish': 'da', 
+ 	'Danish': 'da',
  	'German': 'de',
  	'Greek': 'el' ,
  	'Spanish': 'es',
@@ -25,6 +25,6 @@ const LANGUAGE_TRANSLATE_MAPPING = {
  	'Turkish': 'tr',
  	'Chinese (Mandarin)': 'zh-CN',
  	'Chinese (Cantonese)': 'zh-HK'
-}
+};
 
 export default LANGUAGE_TRANSLATE_MAPPING;

@@ -4,7 +4,7 @@ const TRANSLATE_VOICE_MAPPING = {
  	'da': 'Sara', 
  	'de': 'Anna',
  	'el': 'Melina',
-	'en': 'Samantha',
+	'en': 'Alex',
  	'es': 'Jorge',
  	'fi': 'Satu',
  	'fr': 'Thomas',
