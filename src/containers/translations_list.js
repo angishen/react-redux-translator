@@ -7,12 +7,17 @@ import SoundPlayer from "../components/sound_player";
 import TRANSLATE_LANGUAGE_MAPPING from "../constants/translate_language_mapping";
 import TRANSLATE_VOICE_MAPPING from "../constants/translate_voice_mapping";
 
-import { fetchVoices } from "../actions";
+import { fetchVoices, deleteLanguage } from "../actions";
 
 class TranslationsList extends Component {
+
   componentDidMount() {
     this.props.fetchVoices();
   }
+
+  handleDelete = event => {
+    this.props.deleteLanguage();
+  };
 
   generateTranslationsList(translationResponse) {
     const translatedWords = translationResponse.map(translation => {
@@ -33,6 +38,11 @@ class TranslationsList extends Component {
             voice={TRANSLATE_VOICE_MAPPING[data[1]]}
             voices={voices}
           />
+        </td>
+        <td>
+          <button className="ui basic button red">
+            <i className="trash icon" />
+          </button>
         </td>
       </tr>
     );
@@ -81,5 +91,5 @@ function mapStateToProps({ translations, languages, voices, words }) {
 
 export default connect(
   mapStateToProps,
-  { fetchVoices }
+  { fetchVoices, deleteLanguage }
 )(TranslationsList);
