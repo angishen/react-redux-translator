@@ -1,5 +1,5 @@
-import _ from "lodash";
-import axios from "axios";
+import _ from 'lodash';
+import axios from 'axios';
 import {
   FETCH_TRANSLATION,
   FETCH_TRANSLATIONS,
@@ -7,8 +7,8 @@ import {
   ADD_LANGUAGE,
   DELETE_LANGUAGE,
   SAVE_WORD
-} from "./types";
-import API_KEY from "../google_translate_api_key";
+} from './types';
+import API_KEY from '../google_translate_api_key';
 
 const ROOT_URL = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}&source=en`;
 

@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import SoundPlayer from "../components/sound_player";
+import SoundPlayer from '../components/sound_player';
 
-import TRANSLATE_LANGUAGE_MAPPING from "../constants/translate_language_mapping";
-import TRANSLATE_VOICE_MAPPING from "../constants/translate_voice_mapping";
+import TRANSLATE_LANGUAGE_MAPPING from '../constants/translate_language_mapping';
+import TRANSLATE_VOICE_MAPPING from '../constants/translate_voice_mapping';
 
-import { fetchVoices, deleteLanguage } from "../actions";
+import { fetchVoices, deleteLanguage } from '../actions';
 
 class TranslationsList extends Component {
   componentDidMount() {
@@ -31,7 +31,10 @@ class TranslationsList extends Component {
           />
         </td>
         <td>
-          <button onClick={this.handleDelete(language)} className="ui basic button red">
+          <button
+            onClick={this.handleDelete(language)}
+            className="ui basic button red"
+          >
             <i className="trash icon" />
           </button>
         </td>
@@ -45,7 +48,7 @@ class TranslationsList extends Component {
         <h1>{word}</h1>
         <SoundPlayer
           text={word}
-          voice={TRANSLATE_VOICE_MAPPING["en"]}
+          voice={TRANSLATE_VOICE_MAPPING['en']}
           voices={this.props.voices}
         />
       </div>
@@ -74,8 +77,8 @@ class TranslationsList extends Component {
   }
 }
 
-function mapStateToProps({ translations, languages, voices, words }) {
-  return { translations, languages, voices, words };
+function mapStateToProps({ translations, voices, words }) {
+  return { translations, voices, words };
 }
 
 export default connect(
