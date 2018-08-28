@@ -28,22 +28,26 @@ class WordSearchBar extends Component {
 
   render() {
     return (
-      <div className="search-bar-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="ui search">
-            <div className="ui icon input search-bar">
+      <nav className="blue">
+        <div className="nav-wrapper">
+          <form onSubmit={this.handleSubmit}>
+            <div className="input-field">
               <input
-                type="text"
-                placeholder="Search for a word or phrase"
-                className="prompt"
+                id="search"
+                type="search"
+                placeholder="Search for a word or phrase to translate..."
                 value={this.state.term}
                 onChange={this.handleInputChange}
+                required
               />
+              <label className="label-icon" htmlFor="search">
+                <i className="material-icons">search</i>
+              </label>
               <i className="search icon" />
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
+      </nav>
     );
   }
 }

@@ -1,19 +1,13 @@
 .word-heading {
-	text-align: center;
+  text-align: center;
+	margin-bottom: 20px;
 }
 
-.table {
-	width: 85%;
-	margin: 20px auto;
+.icon-row {
+	margin-top: 15px;
+	margin-bottom: 0px;
 }
 
-.search-bar-container {
-	width: 850px;
-	margin: 0px auto;
-
-}
-
-.search-bar {
-	width: 85%;
-	margin: 50px auto;
+.english-word {
+	margin-bottom: 15px;
 }

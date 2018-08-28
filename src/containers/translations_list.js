@@ -20,37 +20,44 @@ class TranslationsList extends Component {
   renderTranslations = ({ language, translatedText }) => {
     let voices = this.props.voices;
     return (
-      <tr key={language}>
-        <td>{TRANSLATE_LANGUAGE_MAPPING[language]}</td>
-        <td>{translatedText}</td>
-        <td>
-          <SoundPlayer
-            text={translatedText}
-            voice={TRANSLATE_VOICE_MAPPING[language]}
-            voices={voices}
-          />
-        </td>
-        <td>
-          <button
-            onClick={this.handleDelete(language)}
-            className="ui basic button red"
-          >
-            <i className="trash icon" />
-          </button>
-        </td>
-      </tr>
+      <div className="card blue darken-1" key={language}>
+        <div className="card-content white-text">
+          <span className="card-title">{translatedText}</span>
+          <p>{TRANSLATE_LANGUAGE_MAPPING[language]}</p>
+          <div className="icon-row row">
+            <div className="col s1">
+              <SoundPlayer
+                text={translatedText}
+                voice={TRANSLATE_VOICE_MAPPING[language]}
+                voices={voices}
+              />
+            </div>
+            <div className="col s10" />
+            <div className="col s1">
+              <a
+                onClick={this.handleDelete(language)}
+                className="btn-floating waves-effect waves-light red right"
+              >
+                <i className="material-icons">delete</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   };
 
   renderWordBanner = word => {
     return (
       <div className="word-heading">
-        <h1>{word}</h1>
-        <SoundPlayer
-          text={word}
-          voice={TRANSLATE_VOICE_MAPPING['en']}
-          voices={this.props.voices}
-        />
+        <span>
+          <h1 className="english-word">{word}</h1>
+          <SoundPlayer
+            text={word}
+            voice={TRANSLATE_VOICE_MAPPING['en']}
+            voices={this.props.voices}
+          />
+        </span>
       </div>
     );
   };
@@ -58,17 +65,13 @@ class TranslationsList extends Component {
   render() {
     if (this.props.translations.length > 0) {
       return (
-        <div className="table">
+        <div className="container">
           <React.Fragment>
             {this.renderWordBanner(
               this.props.words[this.props.words.length - 1]
             )}
           </React.Fragment>
-          <table className="ui celled table">
-            <tbody>
-              {this.props.translations.map(this.renderTranslations)}
-            </tbody>
-          </table>
+          <div>{this.props.translations.map(this.renderTranslations)}</div>
         </div>
       );
     } else {

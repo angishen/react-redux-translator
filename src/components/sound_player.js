@@ -14,15 +14,12 @@ export default class SoundPlayer extends Component {
 
   render() {
     return (
-      <div>
-        <button
-          type="button"
-          className="ui positive basic button"
-          onClick={this.handleButtonClick}
-        >
-          <i className="volume up icon" />
-        </button>
-      </div>
+      <a
+        onClick={this.handleButtonClick}
+        className="sound-player-button btn-floating waves-effect waves-light green"
+      >
+        <i className="material-icons">volume_up</i>
+      </a>
     );
   }
 }
