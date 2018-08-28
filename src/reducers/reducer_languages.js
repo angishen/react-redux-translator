@@ -1,6 +1,6 @@
 import { ADD_LANGUAGE, DELETE_LANGUAGE } from "../actions/types";
 
-export default function(state = ["es", "fr", "zh-CN", "el"], action) {
+export default function(state = ["es","zh-CN", "de"], action) {
   switch (action.type) {
     case ADD_LANGUAGE:
       return [...state, action.payload];

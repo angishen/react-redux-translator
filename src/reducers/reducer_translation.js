@@ -4,7 +4,9 @@ import {
   DELETE_LANGUAGE
 } from "../actions/types";
 
-export default function(state = [], action) {
+import initialTranslations from '../constants/initial_translations';
+
+export default function(state = initialTranslations, action) {
   switch (action.type) {
     case FETCH_TRANSLATIONS:
       return action.payload;

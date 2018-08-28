@@ -11,3 +11,23 @@
 .english-word {
 	margin-bottom: 15px;
 }
+
+input::-webkit-input-placeholder {
+	color: white !important;
+	font-family: "Roboto", sans-serif !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+	color: white !important;
+	font-family: "Roboto", sans-serif !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+	color: white !important;
+	font-family: "Roboto", sans-serif !important;
+}
+
+input:-ms-input-placeholder {
+	color: white !important;
+	font-family: "Roboto", sans-serif !important;
+}

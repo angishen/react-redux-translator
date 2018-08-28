@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import $ from 'jquery';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -13,6 +13,10 @@ class LanguageSelector extends Component {
     super(props);
 
     this.state = { selectedLanguage: '' };
+  }
+
+  componentDidMount() {
+    $('select').material_select();
   }
 
   renderDropdownOptions = lang => {
@@ -35,30 +39,21 @@ class LanguageSelector extends Component {
   };
 
   render() {
-    if (this.props.translations.length > 0) {
-      return (
-        <form>
-          <select
-            name="language"
-            onChange={this.handleChange}
-            value={this.state.selectedLanguage}
-            className="ui selection dropdown"
-          >
-            {this.props.availableLanguages
-              .sort()
-              .map(this.renderDropdownOptions)}
-          </select>
-          <button
-            type="submit"
-            className="ui primary button"
-            onClick={this.handleAddLanguage}
-          >
-            <i className="plus circle icon" />
-          </button>
-        </form>
-      );
-    }
-    return <div />;
+    return (
+      <div className="input-field">
+        <select
+          name="language"
+          onChange={this.handleChange}
+          value={this.state.selectedLanguage}
+        >
+          <option key="" >Add a language</option>
+          {this.props.availableLanguages.sort().map(this.renderDropdownOptions)}
+        </select>
+        <button type="submit" onClick={this.handleAddLanguage}>
+          submit
+        </button>
+      </div>
+    );
   }
 }
 
