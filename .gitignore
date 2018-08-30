@@ -22,3 +22,5 @@ yarn-error.log*
 
 # api keys
 google_translate_api_key.js
+
+.idea
