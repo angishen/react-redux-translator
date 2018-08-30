@@ -4,7 +4,7 @@ import {
   DELETE_LANGUAGE
 } from "../actions/types";
 
-import initialTranslations from '../constants/initial_translations';
+import { initialTranslations } from '../constants/initial_setup';
 
 export default function(state = initialTranslations, action) {
   switch (action.type) {

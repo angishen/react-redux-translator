@@ -8,7 +8,7 @@ export default function(
     'da',
     'nl',
     'fi',
-    'de',
+    'fr',
     'iw',
     'hi',
     'hu',

@@ -1,33 +1,25 @@
 .word-heading {
   text-align: center;
-	margin-bottom: 20px;
+}
+.ui.card {
+  width: 85%;
+}
+.ui.card > .content {
+  background-color: #4885ed;
 }
 
-.icon-row {
-	margin-top: 15px;
-	margin-bottom: 0px;
+.prompt {
+  width: 80%;
 }
 
-.english-word {
-	margin-bottom: 15px;
+.translation-list {
+  margin-top: 20px;
 }
 
-input::-webkit-input-placeholder {
-	color: white !important;
-	font-family: "Roboto", sans-serif !important;
+.search-bar {
+  margin: 20px auto;
 }
 
-input:-moz-placeholder { /* Firefox 18- */
-	color: white !important;
-	font-family: "Roboto", sans-serif !important;
-}
-
-input::-moz-placeholder {  /* Firefox 19+ */
-	color: white !important;
-	font-family: "Roboto", sans-serif !important;
-}
-
-input:-ms-input-placeholder {
-	color: white !important;
-	font-family: "Roboto", sans-serif !important;
+.ui.icon.input {
+  width: 100%;
 }
